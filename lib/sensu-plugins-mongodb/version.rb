@@ -1,9 +1,5 @@
 module SensuPluginsMongoDB
   module Version
-    MAJOR = 2
-    MINOR = 1
-    PATCH = 0
-
-    VER_STRING = [MAJOR, MINOR, PATCH].compact.join('.')
+    VER_STRING = '2.2.0-campact.1'
   end
 end
