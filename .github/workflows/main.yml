@@ -19,9 +19,9 @@ jobs:
           touch $HOME/.gem/credentials
           chmod 0600 $HOME/.gem/credentials
           printf -- "---\n:github: Bearer ${GITHUB_TOKEN}\n" > $HOME/.gem/credentials
-          gem build core_docgen.gemspec
+          gem build sensu-plugins-mongodb.gemspec
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish
         run: |
-          gem push --KEY github --host https://rubygems.pkg.github.com/campact core_docgen*.gem
+          gem push --KEY github --host https://rubygems.pkg.github.com/campact sensu-plugins-mongodb*.gem
