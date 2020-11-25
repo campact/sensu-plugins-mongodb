@@ -359,7 +359,9 @@ module SensuPluginsMongoDB
         server_metrics['metrics.wired_tiger.cache.eviction_server_evicting_pages'] = wired_tiger_cache['eviction server evicting pages']
         server_metrics['metrics.wired_tiger.cache.maximum_bytes_configured'] = wired_tiger_cache['maximum bytes configured']
         server_metrics['metrics.wired_tiger.cache.modified_pages_evicted'] = wired_tiger_cache['modified pages evicted']
+        server_metrics['metrics.wired_tiger.cache.pages_currently_held_in_the_cache'] = wired_tiger_cache['pages currently held in the cache']
         server_metrics['metrics.wired_tiger.cache.tracked_dirty_bytes_in_the_cache'] = wired_tiger_cache['tracked dirty bytes in the cache']
+        server_metrics['metrics.wired_tiger.cache.tracked_dirty_pages_in_the_cache'] = wired_tiger_cache['tracked dirty pages in the cache']
         server_metrics['metrics.wired_tiger.cache.unmodified_pages_evicted'] = wired_tiger_cache['unmodified pages evicted']
 
         # concurrentTransactions
@@ -371,12 +373,26 @@ module SensuPluginsMongoDB
         server_metrics['metrics.wired_tiger.concurrent_transaction.read.available'] = wired_tiger_cc_tx['read']['available']
         server_metrics['metrics.wired_tiger.concurrent_transaction.read.totalTickets'] = wired_tiger_cc_tx['read']['totalTickets']
 
+        # log
+        wired_tiger_log = server_status['wiredTiger']['log']
+        server_metrics['metrics.wired_tiger.log.log_flush_operations'] = wired_tiger_log['log flush operations']
+        server_metrics['metrics.wired_tiger.log.log_bytes_written'] = wired_tiger_log['log bytes written']
+        server_metrics['metrics.wired_tiger.log.log_records_compressed'] = wired_tiger_log['log records compressed']
+        server_metrics['metrics.wired_tiger.log.log_records_not_compressed'] = wired_tiger_log['log records not compressed']
+        server_metrics['metrics.wired_tiger.log.log_sync_operations'] = wired_tiger_log['log sync operations']
+        server_metrics['metrics.wired_tiger.log.log_write_operations'] = wired_tiger_log['log write operations']
+
         # session
         wired_tiger_sessions = server_status['wiredTiger']['session']
         server_metrics['metrics.wired_tiger.session.open_session_count'] = wired_tiger_sessions['open session count']
 
         # transaction
         wired_tiger_tx = server_status['wiredTiger']['transaction']
+        server_metrics['metrics.wired_tiger.transaction.transaction_checkpoint_max_time_msecs'] = wired_tiger_tx['transaction checkpoint max time (msecs)']
+        server_metrics['metrics.wired_tiger.transaction.transaction_checkpoint_min_time_msecs'] = wired_tiger_tx['transaction checkpoint min time (msecs)']
+        server_metrics['metrics.wired_tiger.transaction.transaction_checkpoint_most_recent_time_msecs'] = wired_tiger_tx[
+          'transaction checkpoint most recent time (msecs)'
+        ]
         server_metrics['metrics.wired_tiger.transaction.transactions_committed'] = wired_tiger_tx['transactions committed']
         server_metrics['metrics.wired_tiger.transaction.transactions_rolled_back'] = wired_tiger_tx['transactions rolled back']
       end
