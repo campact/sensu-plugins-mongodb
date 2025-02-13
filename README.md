@@ -25,10 +25,6 @@
 
 The `pymongo` python package needs to be installed to use `check-mongodb`
 
-## Security
-
-* [Snyk](https://app.snyk.io/org/about-source/project/8636640d-7e1f-48d8-97fa-385eef63f783)
-
 ## Licensing
 
 ### nagios-plugin-mongodb
